@@ -1,0 +1,11 @@
+@import "./variables.scss";
+* {
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: color(primary);
+  color: color(textLight);
+  font-family: "open sans";
+}

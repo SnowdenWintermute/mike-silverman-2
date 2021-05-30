@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,CAAC,CAAC;EACA,OAAO,EAAE,GAAG;EACZ,UAAU,EAAE,UAAU;CACvB;;AAED,AAAA,IAAI,CAAC;EACH,gBAAgB,ECNP,OAAO;EDOhB,KAAK,ECJM,OAAO;EDKlB,WAAW,EAAE,WAAW;CACzB",
+    "sources": [
+        "../baseline.scss",
+        "../variables.scss"
+    ],
+    "names": [],
+    "file": "baseline.css"
+}
