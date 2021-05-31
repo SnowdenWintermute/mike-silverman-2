@@ -1,7 +1,8 @@
-img {
+.zoomable-image {
   height: 100%;
   width: 100%;
   object-fit: contain;
   object-position: center;
   transition: 0.3s;
+  cursor: crosshair;
 }

@@ -3,7 +3,7 @@ import "../../../css/sassOutput/projectCard.css"
 import CornerBrackets from '../../CornerBrackets/CornerBrackets'
 import OffsetZoomer from '../../OffsetZoomer/OffsetZoomer'
 
-const ProjectCard = ({ title, image, description, link }) => {
+const ProjectCard = ({ title, image, description, link, logo }) => {
   const [hovering, setHovering] = useState(false)
   const [mouseDown, setMouseDown] = useState(false)
   const [offset, setOffset] = useState({})
@@ -28,7 +28,13 @@ const ProjectCard = ({ title, image, description, link }) => {
   }
 
   return (
-    <div className="project-card" onMouseMove={handleMouseMove} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+    <div className="project-card"
+      onFocus={handleMouseEnter} onBlur={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}>
       <CornerBrackets
         color="#2d6a2d"
         blinkColor="#bcd2e8"
@@ -39,6 +45,7 @@ const ProjectCard = ({ title, image, description, link }) => {
         mouseDown={mouseDown}
       />
       <div className="project-card-title">
+        {/* <img src={logo} alt="logo" className="project-card-logo" /> */}
         <a href={link}>
           {title}
         </a>
