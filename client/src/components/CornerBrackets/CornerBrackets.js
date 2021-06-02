@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import "../../css/sassOutput/cornerBrackets.css"
-const CornerBrackets = ({ color, blinkColor, length, thickness, maxSizeOffset, hovering, mouseDown }) => {
+const CornerBrackets = ({ color, altColor, length, thickness, maxSizeOffset, hovering, mouseDown }) => {
   const [opacity, setOpacity] = useState(0)
   const [sizeOffset, setSizeOffset] = useState(0)
   const [bracketColor, setBracketColor] = useState(color)
@@ -53,8 +53,8 @@ const CornerBrackets = ({ color, blinkColor, length, thickness, maxSizeOffset, h
       else clearInterval(resizeInterval.current)
     }, 33)
     setOpacity(100)
-    setBracketColor(blinkColor)
-  }, [blinkColor, sizeOffset])
+    setBracketColor(altColor)
+  }, [altColor, sizeOffset])
 
   const [lastHovering, setLastHovering] = useState(hovering)
   const [lastMouseDown, setLastMousDown] = useState(mouseDown)

@@ -36,8 +36,8 @@ const ProjectCard = ({ title, image, description, link, logo }) => {
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}>
       <CornerBrackets
-        color="#2d6a2d"
-        blinkColor="#bcd2e8"
+        color="#bcd2e8"
+        altColor="pink"
         length={40}
         thickness={2}
         maxSizeOffset={-10}

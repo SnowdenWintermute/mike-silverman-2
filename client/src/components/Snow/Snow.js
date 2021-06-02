@@ -3,6 +3,8 @@ import draw from './draw'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
 import createSnowInterval from './createSnowInterval'
 import Snowflake from './Snowflake'
+import Quadtree from './Quadtree/Quadtree'
+import Rectangle from './Quadtree/Rectangle'
 
 const Snow = () => {
   const canvasRef = useRef()
@@ -10,11 +12,17 @@ const Snow = () => {
   const snowInterval = useRef()
   const { height: windowHeight, width: windowWidth } = useWindowDimensions()
   const snowflakes = useRef([])
+  const qtRef = useRef(new Quadtree({ boundary: new Rectangle(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2), capacity: 4 }))
 
   useEffect(() => {
     for (let i = 10000; i > 0; i--)
       snowflakes.current.push(new Snowflake({ xPos: Math.random() * windowWidth, yPos: Math.random() * windowHeight }))
   }, [])
+
+  useEffect(() => {
+    qtRef.current = new Quadtree({ boundary: new Rectangle(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2), capacity: 4 })
+    console.log(qtRef.current)
+  }, [windowHeight, windowWidth])
 
   useEffect(() => {
     drawRef.current = function () {
