@@ -10,6 +10,8 @@ export default class Rectangle {
     this.bottom = y + h / 2;
   }
   contains(point) {
+    // console.log(point)
+    // console.log(this.left, this.right, this.top, this.bottom)
     return (
       this.left <= point.x && point.x <= this.right &&
       this.top <= point.y && point.y <= this.bottom
