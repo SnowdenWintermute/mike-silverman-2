@@ -3,9 +3,7 @@ import draw from './draw'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
 import createSnowInterval from './createSnowInterval'
 import Snowflake from './Snowflake'
-import Quadtree from './Quadtree/Quadtree'
 import Rectangle from './Quadtree/Rectangle'
-import Point from './Quadtree/Point'
 
 const Snow = () => {
   const canvasRef = useRef()
@@ -13,11 +11,16 @@ const Snow = () => {
   const snowInterval = useRef()
   const { height: windowHeight, width: windowWidth } = useWindowDimensions()
   const snowflakes = useRef([])
-  const qtRef = useRef(new Quadtree(new Rectangle(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2), 4))
+  const qtRef = useRef()
+  const mouseData = useRef({
+    x: null,
+    y: null,
+    boxSize: 100
+  })
 
   useEffect(() => {
     snowflakes.current = []
-    for (let i = 150; i > 0; i--)
+    for (let i = 1500; i > 0; i--)
       snowflakes.current.push(new Snowflake({ xPos: Math.random() * windowWidth, yPos: Math.random() * windowHeight }))
   }, [windowWidth, windowHeight])
 
@@ -25,7 +28,7 @@ const Snow = () => {
     drawRef.current = function () {
       const canvas = canvasRef.current
       const context = canvas.getContext('2d')
-      draw({ context, windowHeight, windowWidth, snowflakes: snowflakes.current, qtRef })
+      draw({ context, windowHeight, windowWidth, snowflakes: snowflakes.current, qtRef, mouseData })
     }
   })
 
@@ -36,12 +39,22 @@ const Snow = () => {
     return () => clearInterval(snowInterval.current)
   })
 
+  const handleMouseMove = (e) => {
+    mouseData.current.x = e.nativeEvent.offsetX
+    mouseData.current.y = e.nativeEvent.offsetY
+    if (qtRef.current) {
+      const found = qtRef.current.query(new Rectangle(mouseData.current.x - mouseData.current.boxSize, mouseData.current.y - mouseData.current.boxSize, mouseData.current.boxSize, mouseData.current.boxSize))
+      found.forEach(point => point.userData.color = "rgb(0, 255, 0)")
+    }
+  }
+
   return (
     <canvas
       className="snow-canvas"
       height={windowHeight - 2}
       width={windowWidth - 2}
       ref={canvasRef}
+      onMouseMove={handleMouseMove}
     />
   )
 }

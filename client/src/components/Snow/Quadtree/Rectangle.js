@@ -4,10 +4,10 @@ export default class Rectangle {
     this.y = y;
     this.w = w;
     this.h = h;
-    this.left = x - w / 2;
-    this.right = x + w / 2;
-    this.top = y - h / 2;
-    this.bottom = y + h / 2;
+    this.left = x - w;
+    this.right = x + w;
+    this.top = y - h;
+    this.bottom = y + h;
   }
   contains(point) {
     // console.log(point)
@@ -28,13 +28,13 @@ export default class Rectangle {
   subdivide(quadrant) {
     switch (quadrant) {
       case 'ne':
-        return new Rectangle(this.x + this.w / 4, this.y - this.h / 4, this.w / 2, this.h / 2);
+        return new Rectangle(this.x + this.w / 2, this.y - this.h / 2, this.w / 2, this.h / 2);
       case 'nw':
-        return new Rectangle(this.x - this.w / 4, this.y - this.h / 4, this.w / 2, this.h / 2);
+        return new Rectangle(this.x - this.w / 2, this.y - this.h / 2, this.w / 2, this.h / 2);
       case 'se':
-        return new Rectangle(this.x + this.w / 4, this.y + this.h / 4, this.w / 2, this.h / 2);
+        return new Rectangle(this.x + this.w / 2, this.y + this.h / 2, this.w / 2, this.h / 2);
       case 'sw':
-        return new Rectangle(this.x - this.w / 4, this.y + this.h / 4, this.w / 2, this.h / 2);
+        return new Rectangle(this.x - this.w / 2, this.y + this.h / 2, this.w / 2, this.h / 2);
       default:
         return undefined
     }
