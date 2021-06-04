@@ -1,8 +1,7 @@
 const drawQt = (qt, context) => {
-  context.strokeStyle = "rgba(255,100,100, .3)"
+  context.strokeStyle = `rgba(255,100,100, .3)`
   context.lineWidth = 1
-  // context.strokeRect(qt.boundary.x - qt.boundary.w, qt.boundary.y - qt.boundary.h, qt.boundary.w * 2, qt.boundary.h * 2)
-  context.strokeRect(qt.boundary.x - qt.boundary.w, qt.boundary.y - qt.boundary.h, qt.boundary.w * 2, qt.boundary.h * 2)
+  context.strokeRect(qt.boundary.left, qt.boundary.top, qt.boundary.w*2, qt.boundary.h*2)
   if (qt.divided) {
     drawQt(qt.northwest, context)
     drawQt(qt.northeast, context)
@@ -25,9 +24,10 @@ function draw({
   snowflakes.forEach(flake => {
     context.fillStyle = flake.color;
     context.fillRect(flake.xPos, flake.yPos, flake.height, flake.width);
+    // context.strokeRect(flake.xPos - 2 , flake.yPos+flake.height, 4, 4)
   })
-  const qt = qtRef.current
-  drawQt(qt, context)
+  // const qt = qtRef.current
+  // drawQt(qt, context)
   context.strokeStyle = "rgb(100,255,100)"
   context.strokeRect(mouseData.current.x - mouseData.current.boxSize, mouseData.current.y - mouseData.current.boxSize, mouseData.current.boxSize, mouseData.current.boxSize)
 }

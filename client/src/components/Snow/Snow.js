@@ -34,7 +34,7 @@ const Snow = () => {
 
   useEffect(() => {
     function currentDrawFunction() { drawRef.current() }
-    snowInterval.current = createSnowInterval({ currentDrawFunction, windowHeight, windowWidth, snowflakes: snowflakes.current, qtRef })
+    snowInterval.current = createSnowInterval({ currentDrawFunction, windowHeight, windowWidth, snowflakes, qtRef })
 
     return () => clearInterval(snowInterval.current)
   })
@@ -43,7 +43,7 @@ const Snow = () => {
     mouseData.current.x = e.nativeEvent.offsetX
     mouseData.current.y = e.nativeEvent.offsetY
     if (qtRef.current) {
-      const found = qtRef.current.query(new Rectangle(mouseData.current.x - mouseData.current.boxSize, mouseData.current.y - mouseData.current.boxSize, mouseData.current.boxSize, mouseData.current.boxSize))
+      const found = qtRef.current.query(new Rectangle(mouseData.current.x - mouseData.current.boxSize/2, mouseData.current.y - mouseData.current.boxSize/2, mouseData.current.boxSize, mouseData.current.boxSize))
       found.forEach(point => point.userData.color = "rgb(0, 255, 0)")
     }
   }
