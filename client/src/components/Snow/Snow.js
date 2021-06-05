@@ -4,8 +4,9 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 import createSnowInterval from "./snowInterval/createSnowInterval";
 import Snowflake from "./Snowflake";
 import Rectangle from "./Quadtree/Rectangle";
+import mouseQueryQt from "./mouseQueryQt";
 
-const Snow = () => {
+const Snow = ({ numFlakes, parentHeight, parentWidth }) => {
   const canvasRef = useRef();
   const drawRef = useRef();
   const snowInterval = useRef();
@@ -25,11 +26,14 @@ const Snow = () => {
 
   useEffect(() => {
     snowflakes.current = [];
-    for (let i = 700; i > 0; i--)
+    for (let i = numFlakes; i > 0; i--)
       snowflakes.current.push(
-        new Snowflake({ xPos: Math.random() * windowWidth, yPos: Math.random() * windowHeight })
+        new Snowflake({
+          xPos: Math.random() * canvasRef.current.clientWidth,
+          yPos: Math.random() * canvasRef.current.clientHeight,
+        })
       );
-  }, [windowWidth, windowHeight]);
+  }, [windowWidth, windowHeight, parentHeight, numFlakes]);
 
   useEffect(() => {
     drawRef.current = function () {
@@ -37,8 +41,8 @@ const Snow = () => {
       const context = canvas.getContext("2d");
       draw({
         context,
-        windowHeight,
-        windowWidth,
+        elementWidth: canvasRef.current.clientWidth,
+        elementHeight: canvasRef.current.clientHeight,
         snowflakes: snowflakes.current,
         qtRef,
         mouseData,
@@ -52,8 +56,8 @@ const Snow = () => {
     }
     snowInterval.current = createSnowInterval({
       currentDrawFunction,
-      windowHeight,
-      windowWidth,
+      elementWidth: canvasRef.current.clientWidth,
+      elementHeight: canvasRef.current.clientHeight,
       snowflakes,
       qtRef,
       wind,
@@ -65,26 +69,14 @@ const Snow = () => {
   });
 
   const handleMouseMove = (e) => {
-    // mouseData.current.x = e.nativeEvent.offsetX;
-    // mouseData.current.y = e.nativeEvent.offsetY;
-    // if (qtRef.current) {
-    //   const found = qtRef.current.query(
-    //     new Rectangle(
-    //       mouseData.current.x - mouseData.current.boxSize / 2,
-    //       mouseData.current.y - mouseData.current.boxSize / 2,
-    //       mouseData.current.boxSize,
-    //       mouseData.current.boxSize
-    //     )
-    //   );
-    //   found.forEach((point) => (point.userData.color = "rgb(0, 255, 0)"));
-    // }
+    // mouseQueryQt(mouseData, e, qtRef);
   };
 
   return (
     <canvas
       className="snow-canvas"
-      height={windowHeight - 2}
-      width={windowWidth - 2}
+      height={parentHeight}
+      width={parentWidth}
       ref={canvasRef}
       onMouseMove={handleMouseMove}
     />

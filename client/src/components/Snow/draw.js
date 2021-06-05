@@ -10,8 +10,8 @@ const drawQt = (qt, context) => {
   }
 };
 
-function draw({ context, windowHeight, windowWidth, snowflakes, qtRef, mouseData }) {
-  context.clearRect(0, 0, windowWidth, windowHeight);
+function draw({ context, elementHeight, elementWidth, snowflakes, qtRef, mouseData }) {
+  context.clearRect(0, 0, elementWidth, elementHeight);
   context.beginPath();
   snowflakes.forEach((flake) => {
     context.fillStyle = flake.color;

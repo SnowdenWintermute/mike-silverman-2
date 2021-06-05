@@ -9,11 +9,12 @@ class Snowflake {
     this.color = "rgb(255, 255, 255)";
     this.falling = true;
   }
-  fall(groundLevel, wind) {
+  fall(groundLevel, areaWidth) {
     if (!this.falling) return;
-    if (this.yPos >= groundLevel) this.yPos = Math.random() * -30;
-    else this.yPos += this.area / 2;
-    this.xPos += wind.current.direction;
+    if (this.yPos >= groundLevel) {
+      this.yPos = Math.random() * -30;
+      this.xPos = Math.random() * areaWidth;
+    } else this.yPos += this.area / 2;
   }
 }
 

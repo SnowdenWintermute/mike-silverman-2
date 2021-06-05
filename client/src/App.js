@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import ProjectCard from "./components/cards/ProjectCard/ProjectCard";
-import Nav from "./components/layout/Header/Nav";
+import Header from "./components/layout/Header/Header";
+import Nav from "./components/layout/Nav/Nav";
 import Section from "./components/layout/Section/Section";
 import Snow from "./components/Snow/Snow";
 import "./css/main.css";
@@ -9,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Nav />
+        <Header />
         <Section title="Projects">
           <ProjectCard
             title="lucella.org"
@@ -33,7 +34,6 @@ function App() {
             link={"https://rpg.mike-silverman.com/"}
           />
         </Section>
-        <Snow />
       </Router>
     </div>
   );

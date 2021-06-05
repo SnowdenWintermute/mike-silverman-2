@@ -7,8 +7,8 @@ import createNewFlakes from "./createNewFlakes";
 
 export default function createSnowInterval({
   currentDrawFunction,
-  windowHeight,
-  windowWidth,
+  elementHeight,
+  elementWidth,
   snowflakes,
   qtRef,
   wind,
@@ -23,12 +23,12 @@ export default function createSnowInterval({
     //   if (rollToSelectWindChangeDir < 0.2) wind.current.direction += 1;
     //   else wind.current.direction -= 1;
     // }
-    // createNewFlakes(snowflakes, flakeLimit, newFlakesPerTick, windowWidth);
+    // createNewFlakes(snowflakes, flakeLimit, newFlakesPerTick, elementWidth);
     snowflakes.current.forEach((snowflake) => {
-      snowflake.fall(windowHeight - 10, wind);
+      snowflake.fall(elementHeight - 10, elementWidth);
     });
     qtRef.current = new Quadtree(
-      new Rectangle(windowWidth / 2, windowHeight / 2, windowWidth, windowHeight),
+      new Rectangle(elementWidth / 2, elementHeight / 2, elementWidth, elementHeight),
       4
     );
     if (snowflakes) {
