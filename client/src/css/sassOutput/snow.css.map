@@ -2,7 +2,7 @@
     "version": 3,
     "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,OAAO,EAAE,EAAE;EACX,QAAQ,EAAE,KAAK;EACf,GAAG,EAAE,CAAC;EACN,IAAI,EAAE,CAAC;CACR",
     "sources": [
-        "../../components/Snow/snow.scss"
+        "snow.scss"
     ],
     "names": [],
     "file": "snow.css"
