@@ -25,7 +25,7 @@ const Snow = () => {
 
   useEffect(() => {
     snowflakes.current = [];
-    for (let i = 800; i > 0; i--)
+    for (let i = 700; i > 0; i--)
       snowflakes.current.push(
         new Snowflake({ xPos: Math.random() * windowWidth, yPos: Math.random() * windowHeight })
       );
