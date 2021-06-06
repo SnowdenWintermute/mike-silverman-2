@@ -1,5 +1,6 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import ProjectCard from "./components/cards/ProjectCard/ProjectCard";
+import Footer from "./components/layout/Footer/Footer";
 import Header from "./components/layout/Header/Header";
 import Nav from "./components/layout/Nav/Nav";
 import Section from "./components/layout/Section/Section";
@@ -34,6 +35,7 @@ function App() {
             link={"https://rpg.mike-silverman.com/"}
           />
         </Section>
+        {/* <Footer /> */}
       </Router>
     </div>
   );

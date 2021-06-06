@@ -33,7 +33,7 @@ const Snow = ({ numFlakes, parentHeight, parentWidth }) => {
           yPos: Math.random() * canvasRef.current.clientHeight,
         })
       );
-  }, [windowWidth, windowHeight, parentHeight, numFlakes]);
+  }, [windowWidth, windowHeight, parentHeight, parentWidth, numFlakes]);
 
   useEffect(() => {
     drawRef.current = function () {
