@@ -1,24 +1,38 @@
 .project-card {
-  height: 320px;
   width: 480px;
   background-color: #3c5766;
   position: relative;
-  box-shadow: 0px 10px 23px -10px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: 0px 10px 23px -10px rgba(0, 0, 0, 0.52);
+          box-shadow: 0px 10px 23px -10px rgba(0, 0, 0, 0.52);
   margin-right: 30px;
   margin-bottom: 30px;
+  border: 1px solid #bcd2e8;
+}
+
+.project-card:last-child {
+  margin-right: 0px;
 }
 
 .project-card-title {
+  margin-bottom: 20px;
   padding: 10px;
-  text-align: center;
   font-size: 20px;
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #162229;
+  border-bottom: 1px solid #bcd2e8;
 }
 
 .project-card-logo {
-  height: 32px;
+  height: 20px;
   margin-right: 10px;
 }
 
@@ -26,15 +40,68 @@
   height: 200px;
   width: 100%;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
 }
 
 .project-card-description {
-  padding: 10px;
-  text-align: center;
+  width: 100%;
   font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 40px;
+  margin-bottom: 20px;
+  padding-right: 10px;
+}
+
+.project-card-description-text {
+  background-color: #162229;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  height: 100%;
+  font-size: 17px;
+  border-top: 1px solid #bcd2e8;
+  --notchTopLeft: 0%;
+  --notchTopRight: 0%;
+  --notchBottomLeft: 10px;
+  --notchBottomRight: 0px;
+  -webkit-clip-path: polygon(0% var(--notchTopLeft), var(--notchTopLeft) 0%, calc(100% - var(--notchTopRight)) 0%, 100% var(--notchTopRight), 100% calc(100% - var(--notchBottomLeft)), calc(100% - var(--notchBottomLeft)) 100%, var(--notchBottomRight) 100%, 0% calc(100% - var(--notchBottomRight)));
+          clip-path: polygon(0% var(--notchTopLeft), var(--notchTopLeft) 0%, calc(100% - var(--notchTopRight)) 0%, 100% var(--notchTopRight), 100% calc(100% - var(--notchBottomLeft)), calc(100% - var(--notchBottomLeft)) 100%, var(--notchBottomRight) 100%, 0% calc(100% - var(--notchBottomRight)));
+}
+
+.project-card-button-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 a {

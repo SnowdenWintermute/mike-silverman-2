@@ -1,0 +1,32 @@
+@import "../../../../css/variables.scss";
+
+.card-button {
+  height: 40px;
+  border: 1px solid color(textLight);
+  color: color(textLight);
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-right: 10px;
+  transition: 0.3s;
+  width: 50px;
+  &:last-child {
+    margin-right: 0px;
+  }
+  &:hover {
+    background-color: lighten(color(menuPrimary), 10%);
+    width: 100px;
+  }
+}
+.card-button-text {
+  font-size: 16px;
+  margin-right: 10px;
+}
+.button-icon {
+  height: 24px !important;
+  width: 24px !important;
+  fill: color(textLight);
+}

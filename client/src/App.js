@@ -19,6 +19,7 @@ function App() {
             logo={"./img/project logos/lucella.png"}
             description="A competitive multiplayer game"
             link={"https://lucella.org/"}
+            gitHubLink={"https://github.com/SnowdenWintermute/lucella"}
           />
           <ProjectCard
             title="mcguffsilverman.com"
@@ -26,13 +27,15 @@ function App() {
             logo={"./img/project logos/mcguffsilverman.png"}
             description="A custom ecommerce site for fine art"
             link={"https://ecommerce.mike-silverman.com/"}
+            gitHubLink={"https://github.com/SnowdenWintermute/ellen-silverman-v3"}
           />
           <ProjectCard
             title="React RPG"
             image={"./img/projects/rpg_img.png"}
             logo={"./img/project logos/reactrpg.png"}
-            description="Roguelike clicker game"
+            description="A roguelike clicker game"
             link={"https://rpg.mike-silverman.com/"}
+            gitHubLink={"https://github.com/SnowdenWintermute/React-RPG"}
           />
         </Section>
         {/* <Footer /> */}

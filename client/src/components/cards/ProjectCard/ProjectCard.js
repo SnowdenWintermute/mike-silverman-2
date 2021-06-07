@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import "../../../css/sassOutput/projectCard.css";
 import CornerBrackets from "../../CornerBrackets/CornerBrackets";
 import OffsetZoomer from "../../OffsetZoomer/OffsetZoomer";
+import { ReactComponent as GitHubIcon } from "../../../img/icons/github-icon.svg";
+import { ReactComponent as InternetIcon } from "../../../img/icons/internet-icon.svg";
+import CardButton from "./CardButton/CardButton";
 
-const ProjectCard = ({ title, image, description, link, logo }) => {
+const ProjectCard = ({ title, image, description, link, gitHubLink, logo }) => {
   const [hovering, setHovering] = useState(false);
   const [mouseDown, setMouseDown] = useState(false);
   const [offset, setOffset] = useState({});
@@ -39,7 +42,7 @@ const ProjectCard = ({ title, image, description, link, logo }) => {
     >
       <CornerBrackets
         color="green"
-        altColor="pink"
+        altColor="green"
         length={40}
         thickness={4}
         maxSizeOffset={-10}
@@ -47,13 +50,23 @@ const ProjectCard = ({ title, image, description, link, logo }) => {
         mouseDown={mouseDown}
       />
       <div className="project-card-title">
-        {/* <img src={logo} alt="logo" className="project-card-logo" /> */}
+        <img src={logo} alt="logo" className="project-card-logo" />
         <a href={link}>{title}</a>
       </div>
       <div className="project-card-image-holder">
         <OffsetZoomer image={image} alt={title} hovering={hovering} offset={offset} />
       </div>
-      <div className="project-card-description">{description}</div>
+      <div className="project-card-description">
+        <span className="project-card-description-text">{description}</span>
+        <div className="project-card-button-holder">
+          <CardButton text={"Visit"} icon={<InternetIcon className="button-icon" />} link={link} />
+          <CardButton
+            text={"Code"}
+            icon={<GitHubIcon className="button-icon" />}
+            link={gitHubLink}
+          />
+        </div>
+      </div>
     </div>
   );
 };
