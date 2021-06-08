@@ -27,6 +27,10 @@
 .project-card-logo {
   height: 20px;
   margin-right: 10px;
+  transition: 1s;
+  &:hover {
+    transform: rotateY(360deg);
+  }
 }
 .project-card-image-holder {
   height: 200px;
@@ -42,44 +46,16 @@
   font-size: 16px;
   display: flex;
   justify-content: space-between;
-  height: 40px;
+  flex-wrap: wrap;
+  min-height: 40px;
   margin-bottom: 20px;
-  // padding-left: 10px;
   padding-right: 10px;
-}
-.project-card-description-text {
-  background-color: color(primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  padding: 10px;
-  height: 100%;
-  font-size: 17px;
-  // border: 1px solid red;
-  // float: right;
-  border-top: 1px solid color(textLight);
-  --notchTopLeft: 0%;
-  --notchTopRight: 0%;
-  --notchBottomLeft: 10px;
-  --notchBottomRight: 0px;
-  clip-path: polygon(
-    0% var(--notchTopLeft),
-    var(--notchTopLeft) 0%,
-    calc(100% - var(--notchTopRight)) 0%,
-    100% var(--notchTopRight),
-    100% calc(100% - var(--notchBottomLeft)),
-    calc(100% - var(--notchBottomLeft)) 100%,
-    var(--notchBottomRight) 100%,
-    0% calc(100% - var(--notchBottomRight))
-  );
+  overflow: hidden;
 }
 .project-card-button-holder {
-  // width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  // padding: 10px;
 }
 a {
   text-decoration: none;

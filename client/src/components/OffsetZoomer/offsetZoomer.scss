@@ -1,8 +1,14 @@
+.offset-zoomer {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+}
 .zoomable-image {
+  object-fit: contain;
   height: 100%;
   width: 100%;
-  object-fit: contain;
   object-position: center;
   transition: 0.3s;
-  cursor: crosshair;
+  pointer-events: none;
 }

@@ -16,7 +16,7 @@ const Snow = ({ numFlakes, parentHeight, parentWidth }) => {
   const mouseData = useRef({
     x: null,
     y: null,
-    boxSize: 100,
+    radius: 25,
   });
   const wind = useRef({
     direction: 0,
@@ -69,7 +69,8 @@ const Snow = ({ numFlakes, parentHeight, parentWidth }) => {
   });
 
   const handleMouseMove = (e) => {
-    // mouseQueryQt(mouseData, e, qtRef);
+    console.log("handleMouseMove");
+    mouseQueryQt(mouseData, e, qtRef);
   };
 
   return (

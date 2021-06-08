@@ -1,0 +1,43 @@
+@import "../../../../css/variables.scss";
+.appearing-text-holder {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  // border: 1px solid red;
+  position: relative;
+}
+.appearing-text {
+  background-color: color(primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 10px;
+  font-size: 17px;
+  --notchTopLeft: 0%;
+  --notchTopRight: 0%;
+  --notchBottomLeft: 10px;
+  --notchBottomRight: 0px;
+  clip-path: polygon(
+    0% var(--notchTopLeft),
+    var(--notchTopLeft) 0%,
+    calc(100% - var(--notchTopRight)) 0%,
+    100% var(--notchTopRight),
+    100% calc(100% - var(--notchBottomLeft)),
+    calc(100% - var(--notchBottomLeft)) 100%,
+    var(--notchBottomRight) 100%,
+    0% calc(100% - var(--notchBottomRight))
+  );
+  transition: 0.6s;
+}
+.offscreen-top {
+  transform: translateY(-100%);
+}
+.top-line {
+  height: 1px;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  background-color: color(textLight);
+}

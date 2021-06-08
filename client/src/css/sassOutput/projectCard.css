@@ -34,6 +34,13 @@
 .project-card-logo {
   height: 20px;
   margin-right: 10px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.project-card-logo:hover {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
 }
 
 .project-card-image-holder {
@@ -61,35 +68,12 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 40px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-height: 40px;
   margin-bottom: 20px;
   padding-right: 10px;
-}
-
-.project-card-description-text {
-  background-color: #162229;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 10px;
-  height: 100%;
-  font-size: 17px;
-  border-top: 1px solid #bcd2e8;
-  --notchTopLeft: 0%;
-  --notchTopRight: 0%;
-  --notchBottomLeft: 10px;
-  --notchBottomRight: 0px;
-  -webkit-clip-path: polygon(0% var(--notchTopLeft), var(--notchTopLeft) 0%, calc(100% - var(--notchTopRight)) 0%, 100% var(--notchTopRight), 100% calc(100% - var(--notchBottomLeft)), calc(100% - var(--notchBottomLeft)) 100%, var(--notchBottomRight) 100%, 0% calc(100% - var(--notchBottomRight)));
-          clip-path: polygon(0% var(--notchTopLeft), var(--notchTopLeft) 0%, calc(100% - var(--notchTopRight)) 0%, 100% var(--notchTopRight), 100% calc(100% - var(--notchBottomLeft)), calc(100% - var(--notchBottomLeft)) 100%, var(--notchBottomRight) 100%, 0% calc(100% - var(--notchBottomRight)));
+  overflow: hidden;
 }
 
 .project-card-button-holder {

@@ -10,12 +10,12 @@ const Header = () => {
   useEffect(() => {
     setOwnHeight(self.current?.clientHeight);
     setOwnWidth(self.current?.clientWidth);
-  }, [windowWidth]);
+  }, [windowWidth, windowHeight]);
 
   return (
     <div className="header" ref={self}>
       <h1>Mike Silverman</h1>
-      <Snow parentHeight={ownHeight} parentWidth={ownWidth} numFlakes={windowWidth / 5} />
+      <Snow parentHeight={ownHeight} parentWidth={ownWidth} numFlakes={windowWidth / 8} />
     </div>
   );
 };

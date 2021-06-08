@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../../../css/sassOutput/projectCard.css";
 import CornerBrackets from "../../CornerBrackets/CornerBrackets";
 import OffsetZoomer from "../../OffsetZoomer/OffsetZoomer";
 import { ReactComponent as GitHubIcon } from "../../../img/icons/github-icon.svg";
 import { ReactComponent as InternetIcon } from "../../../img/icons/internet-icon.svg";
 import CardButton from "./CardButton/CardButton";
+import AppearingText from "./AppearingText/AppearingText";
 
 const ProjectCard = ({ title, image, description, link, gitHubLink, logo }) => {
   const [hovering, setHovering] = useState(false);
   const [mouseDown, setMouseDown] = useState(false);
-  const [offset, setOffset] = useState({});
-  const handleMouseMove = (e) => {
-    const x = e.nativeEvent.offsetX;
-    const y = e.nativeEvent.offsetY;
-    if (e.target.className === "zoomable-image") setOffset({ x, y });
+  const [descTextHidden, setDescTextHidden] = useState("offscreen-top");
+  const cardRef = useRef();
+
+  const trackScrolling = (e) => {
+    if (cardRef.current?.getBoundingClientRect()?.bottom <= window.innerHeight)
+      setDescTextHidden(false);
+    else setDescTextHidden(true);
   };
+
+  useEffect(() => {
+    document.addEventListener("scroll", trackScrolling);
+    return () => document.removeEventListener("scroll", trackScrolling);
+  }, []);
+
   const handleMouseEnter = () => {
     setHovering(true);
   };
@@ -34,18 +43,18 @@ const ProjectCard = ({ title, image, description, link, gitHubLink, logo }) => {
       className="project-card"
       onFocus={handleMouseEnter}
       onBlur={handleMouseLeave}
-      onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      ref={cardRef}
     >
       <CornerBrackets
         color="green"
         altColor="green"
         length={40}
         thickness={4}
-        maxSizeOffset={-10}
+        maxSizeOffset={-15}
         hovering={hovering}
         mouseDown={mouseDown}
       />
@@ -54,10 +63,10 @@ const ProjectCard = ({ title, image, description, link, gitHubLink, logo }) => {
         <a href={link}>{title}</a>
       </div>
       <div className="project-card-image-holder">
-        <OffsetZoomer image={image} alt={title} hovering={hovering} offset={offset} />
+        <OffsetZoomer image={image} alt={title} />
       </div>
       <div className="project-card-description">
-        <span className="project-card-description-text">{description}</span>
+        <AppearingText text={description} hidden={descTextHidden} />
         <div className="project-card-button-holder">
           <CardButton text={"Visit"} icon={<InternetIcon className="button-icon" />} link={link} />
           <CardButton
