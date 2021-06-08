@@ -16,7 +16,7 @@ const Snow = ({ numFlakes, parentHeight, parentWidth }) => {
   const mouseData = useRef({
     x: null,
     y: null,
-    radius: 25,
+    radius: 50,
   });
   const wind = useRef({
     direction: 0,
@@ -60,24 +60,26 @@ const Snow = ({ numFlakes, parentHeight, parentWidth }) => {
       elementHeight: canvasRef.current.clientHeight,
       snowflakes,
       qtRef,
+      mouseData,
       wind,
       newFlakesPerTick: 10,
       flakeLimit: 10000,
+      mouseQueryQt,
     });
 
     return () => clearInterval(snowInterval.current);
   });
 
   const handleMouseMove = (e) => {
-    console.log("handleMouseMove");
-    mouseQueryQt(mouseData, e, qtRef);
+    mouseData.current.x = e.nativeEvent.offsetX;
+    mouseData.current.y = e.nativeEvent.offsetY;
   };
 
   return (
     <canvas
       className="snow-canvas"
-      height={parentHeight}
-      width={parentWidth}
+      height={parentHeight || 400}
+      width={parentWidth || 400}
       ref={canvasRef}
       onMouseMove={handleMouseMove}
     />

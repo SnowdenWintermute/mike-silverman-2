@@ -11,9 +11,11 @@ export default function createSnowInterval({
   elementWidth,
   snowflakes,
   qtRef,
+  mouseData,
   wind,
   newFlakesPerTick,
   flakeLimit,
+  mouseQueryQt,
 }) {
   return setInterval(() => {
     // wind.current.ticksSinceLastChange += 1;
@@ -36,6 +38,7 @@ export default function createSnowInterval({
         qtRef.current.insert(new Point(snowflake.xPos, snowflake.yPos, snowflake))
       );
     }
+    mouseQueryQt(mouseData, qtRef);
     // stickSnowflakes(snowflakes, qtRef);
     currentDrawFunction();
   }, 66);

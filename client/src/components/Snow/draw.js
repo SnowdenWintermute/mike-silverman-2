@@ -20,7 +20,9 @@ function draw({ context, elementHeight, elementWidth, snowflakes, qtRef, mouseDa
   });
   const qt = qtRef.current;
   drawQt(qt, context);
-  // context.strokeStyle = "rgb(100,255,100)"
+  // context.strokeStyle = "rgb(100,255,100)";
+  // context.arc(mouseData.current.x, mouseData.current.y, mouseData.current.radius, 0, 2 * Math.PI);
+  // context.stroke();
   // context.strokeRect(mouseData.current.x - mouseData.current.boxSize, mouseData.current.y - mouseData.current.boxSize, mouseData.current.boxSize, mouseData.current.boxSize)
 }
 

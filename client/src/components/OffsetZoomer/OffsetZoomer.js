@@ -10,10 +10,9 @@ const OffsetZoomer = ({ image, alt }) => {
     const imgHeight = imgRef.current.clientHeight;
     const imgWidth = imgRef.current.clientWidth;
     const newStyle = {
-      transform: `scale(${hoveringImg ? "1.8" : "1"}) translateX(${-(
-        offset.x -
-        imgWidth / 2
-      )}px) translateY(${-(offset.y - imgHeight / 2)}px`,
+      transform: `scale(${hoveringImg ? "1.8" : "1"}) translateX(${
+        -(offset.x - imgWidth / 2) / 3
+      }px) translateY(${-(offset.y - imgHeight / 2) / 1.5}px`,
     };
     setStyle(newStyle);
   }, [hoveringImg, offset]);

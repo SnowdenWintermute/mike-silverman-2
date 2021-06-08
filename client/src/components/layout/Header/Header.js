@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <div className="header" ref={self}>
-      <h1>Mike Silverman</h1>
+      <h1 className="header-text">Mike Silverman</h1>
       <Snow parentHeight={ownHeight} parentWidth={ownWidth} numFlakes={windowWidth / 8} />
     </div>
   );
