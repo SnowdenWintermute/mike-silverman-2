@@ -20,11 +20,7 @@ const OffsetZoomer = ({ image, alt }) => {
   const handleMouseMove = (e) => {
     const x = e.nativeEvent.offsetX;
     const y = e.nativeEvent.offsetY;
-    // const x = e.clientX - imgRef.current.getBoundingClientRect().left;
-    // const y = e.clientY - imgRef.current.getBoundingClientRect().top;
     setOffset({ x, y });
-    console.log(x);
-    // console.log(y);
   };
 
   useEffect(() => {
