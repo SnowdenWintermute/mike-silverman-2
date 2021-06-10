@@ -9,10 +9,6 @@
   border: 1px solid #bcd2e8;
 }
 
-.project-card:last-child {
-  margin-right: 0px;
-}
-
 .project-card-title {
   margin-bottom: 20px;
   padding: 10px;
@@ -86,6 +82,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (max-width: 470px) {
+  .project-card-button-holder {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 
 a {

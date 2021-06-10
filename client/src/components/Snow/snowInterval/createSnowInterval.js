@@ -38,7 +38,7 @@ export default function createSnowInterval({
         qtRef.current.insert(new Point(snowflake.xPos, snowflake.yPos, snowflake))
       );
     }
-    mouseQueryQt(mouseData, qtRef);
+    // mouseQueryQt(mouseData, qtRef);
     // stickSnowflakes(snowflakes, qtRef);
     currentDrawFunction();
   }, 66);

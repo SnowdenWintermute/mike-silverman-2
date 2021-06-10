@@ -18,9 +18,9 @@ export default function mouseQueryQt(mouseData, qtRef) {
       //     point.userData.falling = false;
       //   }
       // } else {
-      point.userData.yPos += snowRepelSpeed;
-      if (point.x < mouseData.current.x) point.userData.xPos -= snowRepelSpeed;
-      else point.userData.xPos += snowRepelSpeed;
+      point.userData.yPos += point.userData.area / 2;
+      if (point.x < mouseData.current.x) point.userData.xPos -= point.userData.area / 2;
+      else point.userData.xPos += point.userData.area / 2;
       // }
       // point.userData.color = "rgb(255, 0, 0)";
     });

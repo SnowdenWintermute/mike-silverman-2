@@ -30,13 +30,20 @@ const OffsetZoomer = ({ image, alt }) => {
       });
   }, [hoveringImg]);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = () => setHoveringImg(true);
+  const handleMouseLeave = () => setHoveringImg(false);
+  const handleTouchStart = () => {
     setHoveringImg(true);
+    console.log("touchStarte");
   };
-
-  const handleMouseLeave = () => {
-    setHoveringImg(false);
+  const handleTouchEnd = () => setHoveringImg(false);
+  const handleTouchMove = (e) => {
+    const bcr = e.target.getBoundingClientRect();
+    const x = e.targetTouches[0].clientX - bcr.x;
+    const y = e.targetTouches[0].clientY - bcr.y;
+    setOffset({ x, y });
   };
+  // handleMouseMove(e);
 
   return (
     <div
@@ -44,6 +51,9 @@ const OffsetZoomer = ({ image, alt }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
     >
       <img ref={imgRef} className="zoomable-image" src={image} alt={alt} style={style} />
     </div>

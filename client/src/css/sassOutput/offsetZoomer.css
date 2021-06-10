@@ -3,6 +3,8 @@
   height: 100%;
   display: block;
   cursor: crosshair;
+  -ms-touch-action: none;
+      touch-action: none;
 }
 
 .zoomable-image {

@@ -3,6 +3,7 @@
   height: 100%;
   display: block;
   cursor: crosshair;
+  touch-action: none;
 }
 .zoomable-image {
   object-fit: contain;
