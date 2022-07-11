@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import throttledHandlerCreator from "../../utils/throttledEventHandlerCreator";
 import "../../css/sassOutput/offsetZoomer.css";
 
 const OffsetZoomer = ({ image, alt }) => {
@@ -17,11 +18,11 @@ const OffsetZoomer = ({ image, alt }) => {
     setStyle(newStyle);
   }, [hoveringImg, offset]);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = useCallback(throttledHandlerCreator(33,(e) => {
     const x = e.nativeEvent.offsetX;
     const y = e.nativeEvent.offsetY;
     setOffset({ x, y });
-  };
+  }),[]);
 
   useEffect(() => {
     if (!hoveringImg)
@@ -34,15 +35,14 @@ const OffsetZoomer = ({ image, alt }) => {
   const handleMouseLeave = () => setHoveringImg(false);
   const handleTouchStart = () => {
     setHoveringImg(true);
-    console.log("touchStarte");
   };
   const handleTouchEnd = () => setHoveringImg(false);
-  const handleTouchMove = (e) => {
+  const handleTouchMove = useCallback(throttledHandlerCreator(33,(e) => {
     const bcr = e.target.getBoundingClientRect();
     const x = e.targetTouches[0].clientX - bcr.x;
     const y = e.targetTouches[0].clientY - bcr.y;
     setOffset({ x, y });
-  };
+  }),[]);
   // handleMouseMove(e);
 
   return (
