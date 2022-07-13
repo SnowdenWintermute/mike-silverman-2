@@ -1,44 +1,49 @@
 .card-button {
+  position: relative;
   height: 40px;
   border: 1px solid #bcd2e8;
   color: #bcd2e8;
   cursor: pointer;
   background-color: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   text-align: right;
-  padding: 10px;
   margin-right: 10px;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
-  width: 50px;
+  width: 44px;
   overflow: hidden;
 }
-
 .card-button:last-child {
   margin-right: 0px;
 }
-
 .card-button:hover {
   background-color: #4f7286;
   width: 100px;
 }
 
+.card-button-text-hidden {
+  width: 0px;
+  opacity: 0;
+}
+
 .card-button-text {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s;
   font-size: 16px;
   margin-right: 10px;
 }
 
 .button-icon {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   height: 24px;
   width: 24px;
   fill: #bcd2e8;
 }
-/*# sourceMappingURL=cardButton.css.map */

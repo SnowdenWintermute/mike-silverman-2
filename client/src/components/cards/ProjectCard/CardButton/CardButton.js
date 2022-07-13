@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
 const CardButton = ({ text, icon, link }) => {
-  const [showText, setShowText] = useState(false);
+  const [showTextClass, setShowTextClass] = useState("card-button-text-hidden");
+
   const handleMouseEnter = () => {
-    setShowText(true);
+    setShowTextClass("");
   };
   const handleMouseLeave = () => {
-    setShowText(false);
+    setShowTextClass("card-button-text-hidden");
   };
   return (
     <a
@@ -15,7 +16,7 @@ const CardButton = ({ text, icon, link }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {showText ? <span className="card-button-text">{text}</span> : null}
+      {<span className={`card-button-text ${showTextClass}`}>{text}</span>}
       {icon}
     </a>
   );

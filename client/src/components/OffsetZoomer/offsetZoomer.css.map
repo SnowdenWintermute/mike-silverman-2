@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,OAAO;EACnB,eAAe,EAAE,MAAM;EACvB,UAAU,EAAE,IAAI;EAChB,MAAM,EAAE,SAAS;CAClB",
-    "sources": [
-        "offsetZoomer.scss"
-    ],
-    "names": [],
-    "file": "offsetZoomer.css"
-}

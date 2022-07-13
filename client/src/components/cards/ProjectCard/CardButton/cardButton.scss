@@ -1,6 +1,9 @@
 @import "../../../../css/variables.scss";
 
+$buttonIconWidth: 24px;
+
 .card-button {
+  position: relative;
   height: 40px;
   border: 1px solid color(textLight);
   color: color(textLight);
@@ -10,10 +13,9 @@
   justify-content: center;
   align-items: center;
   text-align: right;
-  padding: 10px;
   margin-right: 10px;
   transition: 0.3s;
-  width: 50px;
+  width: calc($buttonIconWidth + 20px);
   overflow: hidden;
   &:last-child {
     margin-right: 0px;
@@ -23,12 +25,26 @@
     width: 100px;
   }
 }
+.card-button-text-hidden {
+  width: 0px;
+  opacity: 0;
+}
 .card-button-text {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s;
   font-size: 16px;
   margin-right: 10px;
 }
 .button-icon {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   height: 24px;
-  width: 24px;
+  width: $buttonIconWidth;
   fill: color(textLight);
 }
