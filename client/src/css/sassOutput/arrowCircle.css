@@ -1,0 +1,66 @@
+.arrow-circle-holder {
+  position: relative;
+  display: block;
+  -webkit-animation: reveal 3s forwards;
+          animation: reveal 3s forwards;
+}
+
+.arrow-circle {
+  position: absolute;
+  display: block;
+  transition: 1s;
+  height: 40px;
+  width: 40px;
+  fill: #bcd2e8;
+  z-index: 0;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation: bounce 4s forwards ease-in-out;
+          animation: bounce 4s forwards ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

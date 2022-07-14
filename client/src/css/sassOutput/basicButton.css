@@ -1,0 +1,17 @@
+.basic-button {
+  height: 40px;
+  font-size: 16px;
+  color: #bcd2e8;
+  background: #3c5766;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #bcd2e8;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  transition: 0.3s;
+}
+.basic-button:hover {
+  background: #4f7286;
+}

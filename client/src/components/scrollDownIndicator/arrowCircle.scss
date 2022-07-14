@@ -1,0 +1,42 @@
+@import "../../css/variables.scss";
+
+.arrow-circle-holder {
+  position: relative;
+  display: block;
+  animation: reveal 3s forwards;
+}
+.arrow-circle {
+  position: absolute;
+  display: block;
+  transition: 1s;
+  height: 40px;
+  width: 40px;
+  fill: color(textLight);
+  z-index: 0;
+  animation-delay: 3s;
+  animation: bounce 4s forwards ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

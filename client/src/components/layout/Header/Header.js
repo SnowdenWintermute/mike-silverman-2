@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import Snow from "../../Snow/Snow";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
+// import ScrollDownIndicator from "../../scrollDownIndicator/ScrollDownIndicator";
+import AnchorButton from "../../buttons/AnchorButton/AnchorButton";
 
 const Header = () => {
   const self = useRef();
@@ -14,8 +16,16 @@ const Header = () => {
 
   return (
     <div className="header" ref={self}>
-      <h1 className="header-text">Mike Silverman</h1>
-      <Snow parentHeight={ownHeight} parentWidth={ownWidth} numFlakes={windowWidth / 8} />
+      <div className="header-text-holder">
+        <h1 className="header-text">Mike Silverman</h1>
+        <AnchorButton text="View Projects" anchor="#projects" />
+      </div>
+      {/* <ScrollDownIndicator /> */}
+      <Snow
+        parentHeight={ownHeight}
+        parentWidth={ownWidth}
+        numFlakes={windowWidth / 8}
+      />
     </div>
   );
 };

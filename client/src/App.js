@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <Section title="Projects">
+        <Section title="Projects" id="projects">
           <ProjectCard
             title="lucella.org"
             image={"./img/projects/lucella_img.png"}
@@ -27,7 +27,9 @@ function App() {
             logo={"./img/project logos/mcguffsilverman.png"}
             description="A custom ecommerce site for fine art"
             link={"https://ecommerce.mike-silverman.com/"}
-            gitHubLink={"https://github.com/SnowdenWintermute/ellen-silverman-v3"}
+            gitHubLink={
+              "https://github.com/SnowdenWintermute/ellen-silverman-v3"
+            }
           />
           <ProjectCard
             title="React RPG"

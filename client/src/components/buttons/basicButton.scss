@@ -1,0 +1,17 @@
+@import "../../css/variables.scss";
+
+.basic-button {
+  height: 40px;
+  font-size: 16px;
+  color: color(textLight);
+  background: color(menuPrimary);
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid color(textLight);
+  text-align: center;
+  width: fit-content;
+  transition: 0.3s;
+  &:hover {
+    background: lighten(color(menuPrimary), 10%);
+  }
+}

@@ -3,8 +3,7 @@
   height: 100%;
   display: block;
   cursor: crosshair;
-  -ms-touch-action: none;
-      touch-action: none;
+  touch-action: none;
 }
 
 .zoomable-image {
@@ -14,8 +13,6 @@
   width: 100%;
   -o-object-position: center;
      object-position: center;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   pointer-events: none;
 }
-/*# sourceMappingURL=offsetZoomer.css.map */
