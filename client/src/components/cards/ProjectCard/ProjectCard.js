@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../../../css/sassOutput/projectCard.css";
 import CornerBrackets from "../../CornerBrackets/CornerBrackets";
 import OffsetZoomer from "../../OffsetZoomer/OffsetZoomer";
 import { ReactComponent as GitHubIcon } from "../../../img/icons/github-icon.svg";
@@ -7,7 +6,15 @@ import { ReactComponent as InternetIcon } from "../../../img/icons/internet-icon
 import CardButton from "./CardButton/CardButton";
 import AppearingText from "./AppearingText/AppearingText";
 
-const ProjectCard = ({ title, image, description, link, gitHubLink, logo }) => {
+const ProjectCard = ({
+  title,
+  image,
+  tagline,
+  link,
+  gitHubLink,
+  logo,
+  description,
+}) => {
   const [hovering, setHovering] = useState(false);
   const [mouseDown, setMouseDown] = useState(false);
   const [descTextHidden, setDescTextHidden] = useState("offscreen-top");
@@ -65,10 +72,14 @@ const ProjectCard = ({ title, image, description, link, gitHubLink, logo }) => {
       <div className="project-card-image-holder">
         <OffsetZoomer image={image} alt={title} />
       </div>
-      <div className="project-card-description">
-        <AppearingText text={description} hidden={descTextHidden} />
+      <div className="project-card-tagline-and-buttons">
+        <AppearingText text={tagline} hidden={descTextHidden} />
         <div className="project-card-button-holder">
-          <CardButton text={"Visit"} icon={<InternetIcon className="button-icon" />} link={link} />
+          <CardButton
+            text={"Visit"}
+            icon={<InternetIcon className="button-icon" />}
+            link={link}
+          />
           <CardButton
             text={"Code"}
             icon={<GitHubIcon className="button-icon" />}
@@ -76,6 +87,10 @@ const ProjectCard = ({ title, image, description, link, gitHubLink, logo }) => {
           />
         </div>
       </div>
+      <div
+        className="project-card-description"
+        dangerouslySetInnerHTML={{ __html: description }}
+      ></div>
     </div>
   );
 };

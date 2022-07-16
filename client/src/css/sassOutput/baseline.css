@@ -9,3 +9,7 @@ body {
   color: #bcd2e8;
   font-family: sans-serif;
 }
+
+a {
+  text-decoration: none;
+}

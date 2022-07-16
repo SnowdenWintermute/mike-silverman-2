@@ -9,6 +9,7 @@
   margin-right: 30px;
   margin-bottom: 30px;
   border: 1px solid color(textLight);
+  height: fit-content;
   // &:last-child {
   //   margin-right: 0px;
   // }
@@ -23,6 +24,9 @@
   align-items: center;
   background-color: color(primary);
   border-bottom: 1px solid color(textLight);
+  a {
+    color: color(textLight);
+  }
 }
 .project-card-logo {
   height: 20px;
@@ -41,7 +45,7 @@
   align-items: center;
   margin-bottom: 20px;
 }
-.project-card-description {
+.project-card-tagline-and-buttons {
   width: 100%;
   font-size: 16px;
   display: flex;
@@ -61,7 +65,11 @@
     margin-top: 10px;
   }
 }
-a {
-  text-decoration: none;
-  color: color(textLight);
+.project-card-description {
+  border-top: 1px solid color(textLight);
+  padding: 10px;
+  a {
+    color: color(textLight);
+    text-decoration: underline;
+  }
 }

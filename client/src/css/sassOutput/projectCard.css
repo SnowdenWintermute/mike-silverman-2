@@ -6,6 +6,9 @@
   margin-right: 30px;
   margin-bottom: 30px;
   border: 1px solid #bcd2e8;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .project-card-title {
@@ -18,6 +21,9 @@
   align-items: center;
   background-color: #162229;
   border-bottom: 1px solid #bcd2e8;
+}
+.project-card-title a {
+  color: #bcd2e8;
 }
 
 .project-card-logo {
@@ -39,7 +45,7 @@
   margin-bottom: 20px;
 }
 
-.project-card-description {
+.project-card-tagline-and-buttons {
   width: 100%;
   font-size: 16px;
   display: flex;
@@ -63,7 +69,11 @@
   }
 }
 
-a {
-  text-decoration: none;
+.project-card-description {
+  border-top: 1px solid #bcd2e8;
+  padding: 10px;
+}
+.project-card-description a {
   color: #bcd2e8;
+  text-decoration: underline;
 }
