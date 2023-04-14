@@ -14,24 +14,26 @@ function App() {
         <Header />
         <Section title="Projects" id="projects">
           <ProjectCard
+            title="battleschool.io"
+            image={"./img/projects/lucella_img.png"}
+            logo={"./img/project logos/lucella.png"}
+            tagline="A competitive multiplayer game"
+            link={"https://battleschool.io/"}
+            gitHubLink={"https://github.com/SnowdenWintermute/lucella"}
+            description="A two-player real time strategy game with client side
+prediction, ranked matchmaking, and a UI inspired by classic battle.net. Originally built
+with React, Socket.IO, MongoDB and the Canvas API, then completely rewritten in Typescript
+with Next.JS, PSQL, Redis and tested with Jest and Cypress. Tests run in CI and, if passing,
+automatically deploy with docker compose to a VPS. I work on this project full time."
+          />
+          <ProjectCard
             title="mcguffsilverman.com"
             image={"./img/projects/ecommerce_img.png"}
             logo={"./img/project logos/mcguffsilverman.png"}
             tagline="A custom ecommerce site for fine art"
             link={"https://ecommerce.mike-silverman.com/"}
-            gitHubLink={
-              "https://github.com/SnowdenWintermute/ellen-silverman-v3"
-            }
+            gitHubLink={"https://github.com/SnowdenWintermute/ellen-silverman-v3"}
             description="The third generation website created to sell my mom's paintings, this alternative to Shopify features the ability for the artist to upload their products' information from a .csv file and the images in bulk via a custom backend GUI. Users visiting the shop enjoy a full cart and checkout experience as well as order history and tracking. Also included is an <a href='https://ecommerce.mike-silverman.com/the-professor'>animated storybook</a> featuring the artist's paintings. If you are a potential employer wishing to test the backend GUI, contact me for an administrator login on my example site. Also view the live site at <a href='https://mcguffsilverman.com'>mcguffsilverman.com</a>"
-          />
-          <ProjectCard
-            title="lucella.org"
-            image={"./img/projects/lucella_img.png"}
-            logo={"./img/project logos/lucella.png"}
-            tagline="A competitive multiplayer game"
-            link={"https://lucella.org/"}
-            gitHubLink={"https://github.com/SnowdenWintermute/lucella"}
-            description="A two-player real time strategy game with ranked matchmaking based on the Elo system, and a UI inspired by classic battle.net. You can also play casually without making an account. Built with React, Socket.IO, MongoDB and the Canvas API."
           />
           <ProjectCard
             title="React RPG"
